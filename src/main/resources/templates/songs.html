@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Step 2 - Le miglior Canzoni</title>
+    <th:block th:replace="~{ fragments :: styles }"/>
+    <title>Step 2 - Le migliori Canzoni</title>
 </head>
 <body>
-    <h1>Le miglior Canzoni</h1>
-    <div>
-        <span th:each="song : ${songs}" th:text="|${song.title}, |"></span>
+    <header th:insert="~{fragments :: header('songs')}"></header>
+    <div class="container d-flex align-items-center flex-column mt-4">
+        <th:block th:replace="~{fragments :: elementsList('Le migliori Canzoni', ${songs}, 'songs')}"/>
     </div>
-    <a href="/">Torna alla home</a>
 </body>
 </html>

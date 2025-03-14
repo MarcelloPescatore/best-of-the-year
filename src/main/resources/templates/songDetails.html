@@ -1,17 +1,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <th:block th:replace="~{ fragments :: styles }"/>
     <title>Step 3 - Dettagli Canzoni</title>
 </head>
 <body>
-    <h1>Dettagli Canzoni</h1>
-
-    <div th:each="song : ${songs}">
-        <div th:if="${song.id == songId}">
-            <p th:text="'Titolo della canzone: ' + ${song.title}"></p>
+    <header th:insert="~{fragments :: header-home}"></header>
+    <div class="container">
+        <h1>Dettagli Canzoni</h1>
+    
+        <div th:each="song : ${songs}">
+            <div th:if="${song.id == songId}">
+                <p th:text="'Titolo della canzone: ' + ${song.title}"></p>
+            </div>
         </div>
     </div>
 
-    <a href="/">Torna alla home</a>
 </body>
 </html>

@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <th:block th:replace="~{ fragments :: styles }"/>
     <title>Step 2 - I migliori Film</title>
 </head>
 <body>
-    <h1>I migliori Film</h1>
-    <div>
-        <span th:each="movie : ${movies}" th:text="|${movie.title}, |"></span>
+    <header th:insert="~{fragments :: header('movies')}"></header>
+    <div class="container d-flex align-items-center flex-column">
+        <th:block th:replace="~{fragments :: elementsList('I migliori Film', ${movies}, 'movies')}"/>
     </div>
-    <a href="/">Torna alla home</a>
 </body>
 </html>

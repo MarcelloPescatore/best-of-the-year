@@ -1,7 +1,5 @@
 package org.lessons.java.best_of_the_year.classes;
 
-import java.util.Random;
-
 public class Movie {
     private int id;
     private String title;

@@ -1,17 +1,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
+    <th:block th:replace="~{ fragments :: styles }" />
     <title>Step 3 - Dettagli Film</title>
 </head>
+
 <body>
-    <h1>Dettagli Film</h1>
+    <header th:insert="~{fragments :: header-home}"></header>
+    <div class="container">
+        <h1>Dettagli Film</h1>
 
-    <div th:each="movie : ${movies}">
-        <div th:if="${movie.id == movieId}">
-            <p th:text="'Titolo del film: ' + ${movie.title}"></p>
+        <div th:each="movie : ${movies}">
+            <div th:if="${movie.id == movieId}">
+                <p th:text="'Titolo del film: ' + ${movie.title}"></p>
+            </div>
         </div>
-    </div>
 
-    <a href="/">Torna alla home</a>
+    </div>
 </body>
+
 </html>

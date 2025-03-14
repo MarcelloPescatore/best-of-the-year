@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <th:block th:fragment="styles">
+        <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}" />
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+    </th:block>
+</head>
+
+<body>
+
+    <th:block th:fragment="header(category)">
+        <div class="d-flex align-items-center">
+            <div class="col-2 py-3 px-4">
+                <a class="text-decoration-none text-black" th:href="@{/}">
+                    <h2>Best of</h2>
+                </a>
+            </div>
+            <th:block th:if="${category == 'songs'}">
+                <div class="col-10 d-flex gap-4 py-3 px-4">
+                    <a th:href="@{/movies}" th:text="Movies" class=" btn btn-outline-primary"></a>
+                    <a th:href="@{/songs}" th:text="Songs" class=" btn btn-primary"></a>
+                </div>
+            </th:block>
+            <th:block th:if="${category == 'movies'}">
+                <div class="col-10 d-flex gap-4 py-3 px-4">
+                    <a th:href="@{/movies}" th:text="Movies" class=" btn btn-primary"></a>
+                    <a th:href="@{/songs}" th:text="Songs" class=" btn btn-outline-primary"></a>
+                </div>
+            </th:block>
+        </div>
+    </th:block>
+
+    <th:block th:fragment="header-home">
+        <div class="d-flex align-items-center">
+            <div class="col-2 py-3 px-4">
+                <a class="text-decoration-none text-black" th:href="@{/}">
+                    <h2>Best of</h2>
+                </a>
+            </div>
+            <div class="col-10 d-flex gap-4 py-3 px-4">
+                <a th:href="@{/movies}" th:text="Movies" class=" btn btn-outline-primary"></a>
+                <a th:href="@{/songs}" th:text="Songs" class=" btn btn-outline-primary"></a>
+            </div>
+        </div>
+    </th:block>
+
+    <th:block th:fragment="elementsList(title, elements, category)">
+        <h1 th:text="${title}" />
+        <div class="w-25">
+            <ul class="list-group">
+                <li class="list-group-item text-center" th:each="element : ${elements}">
+                    <a th:href="@{/{category}/{id}(category=${category}, id=${element.id})}" th:text="${element.title}"
+                        class="text-decoration-none text-black fw-semibold"></a>
+
+                </li>
+            </ul>
+        </div>
+    </th:block>
+
+    <th:block th:fragment="button(link, title)">
+        <a th:href="${link}" th:text="${title}" class=" btn btn-outline-primary"></a>
+    </th:block>
+</body>
+
+</html>
