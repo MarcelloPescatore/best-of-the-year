@@ -3,12 +3,15 @@ package org.lessons.java.best_of_the_year.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.lessons.java.best_of_the_year.classes.Movie;
 import org.lessons.java.best_of_the_year.classes.Song;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 @RequestMapping("/")
@@ -51,5 +54,22 @@ public class MainController {
         model.addAttribute("songs", getBestSongs());
         return "songs";
     }
+
+    @GetMapping("/movies/{id}")
+    public String getMovieId(@PathVariable("id") int movieId, Model model) {
+        model.addAttribute("movieId", movieId);
+        model.addAttribute("movies", getBestMovies());
+
+        return "movieDetails";
+    }
+
+    @GetMapping("/songs/{id}")
+    public String getSongId(@PathVariable("id") int songId, Model model) {
+        model.addAttribute("songId", songId);
+        model.addAttribute("songs", getBestSongs());
+
+        return "songDetails";
+    }
+    
 
 }
