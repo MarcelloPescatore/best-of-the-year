@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Step 2 - I migliori Film</title>
+</head>
+<body>
+    <h1>I migliori Film</h1>
+    <div>
+        <span th:each="movie : ${movies}" th:text="|${movie.title}, |"></span>
+    </div>
+</body>
+</html>

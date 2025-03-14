@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Step 2 - Le miglior Canzoni</title>
+</head>
+<body>
+    <h1>Le miglior Canzoni</h1>
+    <div>
+        <span th:each="song : ${songs}" th:text="|${song.title}, |"></span>
+    </div>
+</body>
+</html>
