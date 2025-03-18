@@ -50,11 +50,14 @@
         <h1 th:text="${title}" />
         <div class="w-25">
             <ul class="list-group">
-                <li class="list-group-item text-center" th:each="element : ${elements}">
-                    <a th:href="@{/{category}/{id}(category=${category}, id=${element.id})}" th:text="${element.title}"
-                        class="text-decoration-none text-black fw-semibold"></a>
+                <th:block th:each="element : ${elements}">
+                    <a th:href="@{/{category}/{id}(category=${category}, id=${element.id})}"
+                        class="text-decoration-none text-black fw-semibold">
+                        <li class="list-group-item text-center" th:text="${element.title}"></li>
+                    </a>
+                </th:block>
 
-                </li>
+
             </ul>
         </div>
     </th:block>
